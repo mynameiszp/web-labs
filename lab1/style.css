@@ -1,0 +1,17 @@
+body {
+    background-color: #F5F5DC;
+}
+
+header, footer {
+    background-color: burlywood;
+}
+
+* {
+    text-align: center;
+    color: black;
+    font-family: "Arial Black", monospace;
+}
+
+li, ol {
+    text-align: left;
+}
