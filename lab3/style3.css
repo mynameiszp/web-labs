@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 footer, header {
     background-color: silver;
     padding: 15px;
@@ -5,29 +9,19 @@ footer, header {
     line-height: 10px;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-}
-
 header .logo {
-    margin-left: 7px;
-    display: flex;
+    padding-left: 7px;
     font-weight: bold;
     font-size: 24px;
-    align-items: center;
 }
 
 header .logo img {
-    width: 30px;
+    width: 100%;
 }
 
 header .nav {
-    display: flex;
-    justify-content: space-between;
-    width: 25%;
+    padding-top: 6%;
+    text-align: center;
 }
 
 header .nav button {
@@ -62,58 +56,31 @@ header .nav button {
     display: block;
 }
 
-.logo {
+.entry {
     animation-duration: 4.5s;
-    animation-name: logo-size;
+    animation-name: entry-size;
 }
 
-@keyframes logo-size {
-    from {
-        margin-left: 7px;
-        transform: skewX(20deg);
-    }
-    10%{
-        margin-left: 60px;
+@keyframes entry-size {
+    from, to {
         transform: scale(1);
     }
-    35% {
+    25%, 75% {
         transform: scale(0.7);
     }
-    60% {
-        transform: scale(1.4);
+    50% {
+        transform: scale(1.2);
     }
-    70% {
-        margin-left: 60px;
-        transform: scale(1.0);
-    }
-    80%{
-        margin-left: 7px;
-        transform: skewX(20deg);
-    }
-    90% {
-        transform: skewX(-20deg);
-        margin-left: 25px;
-    }
-    to {
-        margin-left: 7px;
-    }
-}
-
-.body {
-    display: flex;
 }
 
 aside {
-    width: 10%;
-    margin: 15px 10px;
+    margin-top: 2%;
     background-color: #d2d1d1;
-    border: 3px solid #8a8989;
+    border: inset 1px #8a8a8a;
 }
 
 main {
     text-align: center;
-    width: 100%;
-    margin: 15px 20px;
 }
 
 ul {
@@ -129,7 +96,7 @@ aside ul a:hover {
     text-decoration: underline;
 }
 
-.row {
+main .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,8 +105,8 @@ aside ul a:hover {
 main img {
     box-shadow: 10px 5px 5px silver;
     border-radius: 40px;
+    max-width: 85%;
     height: auto;
-    width: 300px;
     transition: transform .2s;
 }
 
@@ -154,6 +121,39 @@ a:link {
 
 a:visited {
     color: black;
+}
+
+.advertisment {
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #8a8a8a;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:first-child {
+    font-weight: bold;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(192, 192, 192, 0.45);
+}
+
+.contacts{
+    text-align: end;
+    padding-bottom: 2.5%;
+}
+
+.contacts a{
+    padding-right: 2%;
 }
 
 footer .nav {
