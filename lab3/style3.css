@@ -25,13 +25,12 @@ header .nav {
 }
 
 header .nav button {
-    background-color: inherit;
+    background-color: transparent;
     border: none;
     font-size: 16px;
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
 }
 
@@ -96,7 +95,7 @@ aside ul a:hover {
     text-decoration: underline;
 }
 
-main .row {
+.pic-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,12 +122,16 @@ a:visited {
     color: black;
 }
 
+::selection {
+    background-color: black;
+    color: silver;
+}
+
 .advertisment {
     font-size: 20px;
 }
 
 table {
-    border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     border: 1px solid #8a8a8a;
@@ -147,13 +150,17 @@ tr:nth-child(odd) {
     background-color: rgba(192, 192, 192, 0.45);
 }
 
-.contacts{
+.contacts {
     text-align: end;
     padding-bottom: 2.5%;
 }
 
-.contacts a{
+.contacts a {
     padding-right: 2%;
+}
+
+.scroll{
+    overflow-x:auto;
 }
 
 footer .nav {
