@@ -182,7 +182,7 @@ form input{
     margin-bottom: 15px;
 }
 
-.subm{
+#subm{
     font-size: 20px;
     background-color: #9b9b9b;
     color: white;
@@ -217,4 +217,18 @@ form input{
 .date{
     color: rgba(79, 79, 79, 0.65);
     font-size: 14px;
+}
+
+#surnameAlert, #nameAlert, #secondNameAlert, #passwordAlert, #dateAlert{
+    display: none;
+    color: red;
+}
+
+#delete, #duplicate{
+    font-size: 17px;
+    background-color: #9b9b9b;
+    color: white;
+    border-radius: 10px 4px;
+    border-color: #4f4f4f;
+    margin: 5px 15px;
 }

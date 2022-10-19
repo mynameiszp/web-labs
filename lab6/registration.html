@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="styles/grid.css" rel="stylesheet" type="text/css">
     <link href="styles/style4.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 
     <title>Регістрація</title>
 </head>
 <link rel="icon" href="images/logo.png" type="image/icon type">
 
-<body>
+<body onload="zeroCounter()">
 <header class="col-12">
     <div class="col-6 logo">
         <a href="../lab4/index4.html"><img src="images/logo-text.png" alt="logo"></a>
@@ -32,35 +34,76 @@
 <div class="row">
     <main class="col-12">
         <h2>Заповніть форму для реєстрації</h2>
-        <form action="../lab4/index4.html">
+        <form id="dataForm">
             <label>Email:
-                <input type="email" required>
+                <input type="email" id="email" name="email" required>
             </label><br>
             <label>Пароль:
-                <input type="password" required>
-            </label><br>
+                <input type="password" id="password" name="password" required>
+            </label>
+            <p id="passwordAlert">Пароль має починатися з великої літери та написаний латиницею. Може містити
+                цифри. Довжина - від 6 до 20 символів</p><br>
             <label>Прізвище:
-                <input type="text" required>
-            </label><br>
+                <input type="text" id="surname" name="surname" required>
+            </label>
+            <p id="surnameAlert">Некоректний формат прізвища</p><br>
             <label>Ім'я:
-                <input type="text" required>
-            </label><br>
+                <input type="text" id="name" name="name" required>
+            </label>
+            <p id="nameAlert">Некоректний формат імені</p><br>
             <label>По-батькові:
-                <input type="text">
-            </label><br>
+                <input type="text" id="secondName" name="secondName" required>
+            </label>
+            <p id="secondNameAlert">Некоректний формат імені по-батькові</p><br>
             <label>Дата народження:
-                <input type="date" required>
+                <input type="date" id="birthDate" name="birthDate" required>
+            </label>
+            <p id="dateAlert">Ваш вік має бути 16+</p><br>
+            <label>Номер телефону:
+                <input type="text" id="phone" name="phone" class="phone form-control" required>
+            </label>
+            <p>Стать:</p>
+            <label>
+                <input type="radio" name="sex" value="Жінка" required>Жінка
             </label><br>
+            <label>
+                <input type="radio" name="sex" value="Чоловік" required>Чоловік
+            </label><br>
+            <label>
+                <input type="radio" name="sex" value="Небінарна особистість" required>Небінарна особистість
+            </label><br>
+            <br>
             <label>Група:
-                <select required>
-                    <option>ІА-11</option>
-                    <option>ІА-12</option>
-                    <option>ІА-13</option>
-                    <option>ІА-14</option>
+                <select id="group" required>
+                    <option name="ia11" value="ІА-11">ІА-11</option>
+                    <option name="ia12" value="ІА-12">ІА-12</option>
+                    <option name="ia13" value="ІА-13">ІА-13</option>
+                    <option name="ia14" value="ІА-14">ІА-14</option>
                 </select>
-            </label><br>
-            <input type="submit" value="Підтвердити" class="subm">
+            </label><br><br>
+            <input type="submit" value="Підтвердити" class="butt" id="subm">
         </form>
+
+        <div class="scroll">
+            <table id="dataTable">
+                <tr>
+                    <td id="genCheckbox">Вибір</td>
+                    <td>Прізвище</td>
+                    <td>Ім'я</td>
+                    <td>По-батькові</td>
+                    <td>Email</td>
+                    <td>Дата народження</td>
+                    <td>Номер телефону</td>
+                    <td>Стать</td>
+                    <td>Група</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="butt-2">
+            <input type="button" id="delete" value="Видалити" onclick="delRows()">
+            <input type="button" id="duplicate" value="Дублювати" onclick="duplicateRow()">
+        </div>
     </main>
 </div>
 <footer>
@@ -91,5 +134,6 @@
     </div>
     <div class="copyright">© Усі права захищені особисто мною</div>
 </footer>
+<script type="text/javascript" src="registerScript.js"></script>
 </body>
 </html>
