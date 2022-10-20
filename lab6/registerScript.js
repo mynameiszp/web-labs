@@ -1,12 +1,8 @@
 $(document).ready(function () {
-    $('.phone').inputmask('+38(099)-999-99-99');
+    $('.phone').inputmask("+38 (999) 999-99-99"); //
 });
 
 let rowCounter = 0;
-
-function zeroCounter() {
-    rowCounter = 0;
-}
 
 let surname = document.getElementById('surname');
 let name = document.getElementById('name');
@@ -17,7 +13,7 @@ name.addEventListener('change', () => checkName(name, 'nameAlert'));
 secondName.addEventListener('change', () => checkName(secondName, 'secondNameAlert'));
 
 function checkName(field, alert) {
-    if (/^[А-ЯЇІЄҐ][а-яїієґ']+$/.test(field.value)) {
+    if (/^[А-ЯЇІЄҐ][а-яїієґ']+$/.test(field.value)) { //
         document.getElementById(alert).style.display = 'none';
     } else {
         document.getElementById(alert).style.display = 'block';
@@ -50,9 +46,10 @@ function checkDate(date) {
 }
 
 let table = document.getElementById('dataTable');
+let array = [];
 
 $(document).ready(function () {
-    $(document).on('submit', '#dataForm', function () {
+    $(document).on('submit', '#dataForm',function () {
         let row = table.insertRow();
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
@@ -64,6 +61,7 @@ $(document).ready(function () {
         let cell8 = row.insertCell(7);
         let cell9 = row.insertCell(8);
         ++rowCounter;
+        array.push(rowCounter);
 
         let input = document.createElement("input");
         input.type = "checkbox";
@@ -83,16 +81,17 @@ $(document).ready(function () {
 });
 
 function delRows() {
-    for (let i = rowCounter; i >= 1; i--) {
-        if (document.getElementById('row' + i).checked === true) {
-            table.deleteRow(i);
+    for (let i = array.length - 1; i >=0 ; i--) {
+        if (document.getElementById('row' + array[i]).checked === true) {
+            table.deleteRow(i+1);
+            array.splice(i,1);
         }
     }
 }
 
-function duplicateRow(){
-    for (let i = 1; i <= rowCounter; i++) {
-        if (document.getElementById('row' + i).checked === true){
+function duplicateRow() {
+    for (let i = 0; i < array.length; i++) {
+        if (document.getElementById('row' + array[i]).checked === true) {
             let row = table.insertRow();
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
@@ -104,19 +103,20 @@ function duplicateRow(){
             let cell8 = row.insertCell(7);
             let cell9 = row.insertCell(8);
             ++rowCounter;
+            array.push(rowCounter);
 
             let input = document.createElement("input");
             input.type = "checkbox";
             input.setAttribute("id", "row" + rowCounter);
             cell1.append(input);
-            cell2.innerHTML = String(table.rows[i].cells[1].innerHTML);
-            cell3.innerHTML = String(table.rows[i].cells[2].innerHTML);
-            cell4.innerHTML = String(table.rows[i].cells[3].innerHTML);
-            cell5.innerHTML = String(table.rows[i].cells[4].innerHTML);
-            cell6.innerHTML = String(table.rows[i].cells[5].innerHTML);
-            cell7.innerHTML = String(table.rows[i].cells[6].innerHTML);
-            cell8.innerHTML = String(table.rows[i].cells[7].innerHTML);
-            cell9.innerHTML = String(table.rows[i].cells[8].innerHTML);
+            cell2.innerHTML = String(table.rows[i+1].cells[1].innerHTML);
+            cell3.innerHTML = String(table.rows[i+1].cells[2].innerHTML);
+            cell4.innerHTML = String(table.rows[i+1].cells[3].innerHTML);
+            cell5.innerHTML = String(table.rows[i+1].cells[4].innerHTML);
+            cell6.innerHTML = String(table.rows[i+1].cells[5].innerHTML);
+            cell7.innerHTML = String(table.rows[i+1].cells[6].innerHTML);
+            cell8.innerHTML = String(table.rows[i+1].cells[7].innerHTML);
+            cell9.innerHTML = String(table.rows[i+1].cells[8].innerHTML);
         }
     }
 }
